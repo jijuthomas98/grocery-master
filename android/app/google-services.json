@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479728444596",
+    "project_id": "go-organics",
+    "storage_bucket": "go-organics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479728444596:android:c42810a3e422a7c071a3e1",
+        "android_client_info": {
+          "package_name": "com.go.organics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479728444596-muj0sd0cs51b89ofo3rh3rfr6qbcuani.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA1bsaYQSsa_GlOBp0NVV-ax7gLAlHH_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479728444596-muj0sd0cs51b89ofo3rh3rfr6qbcuani.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
