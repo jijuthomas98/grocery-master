@@ -28,7 +28,7 @@ class PagesWidget extends StatefulWidget {
         currentTab = int.parse(currentTab.id);
       }
     } else {
-      currentTab = 2;
+      currentTab = 3;
     }
   }
 
@@ -75,11 +75,6 @@ class _PagesWidgetState extends State<PagesWidget> {
         case 4:
           widget.currentPage =
               OrdersWidget(parentScaffoldKey: widget.scaffoldKey);
-          break;
-        case 5:
-          widget.currentPage = MessagesWidget(
-              parentScaffoldKey: widget
-                  .scaffoldKey); //FavoritesWidget(parentScaffoldKey: widget.scaffoldKey);
           break;
       }
     });
@@ -152,10 +147,6 @@ class _PagesWidgetState extends State<PagesWidget> {
                 )),
             BottomNavigationBarItem(
               icon: new Icon(Icons.local_mall),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.chat),
               label: '',
             ),
           ],

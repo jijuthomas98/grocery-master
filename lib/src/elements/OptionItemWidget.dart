@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:markets/src/controllers/cart_controller.dart';
+import 'package:markets/src/global.dart';
 
 import '../helpers/helper.dart';
 import '../models/option.dart';
@@ -19,6 +21,7 @@ class OptionItemWidget extends StatefulWidget {
 
 class _OptionItemWidgetState extends State<OptionItemWidget>
     with SingleTickerProviderStateMixin {
+  bool value;
   Animation animation;
   AnimationController animationController;
   Animation<double> sizeCheckAnimation;
@@ -26,9 +29,11 @@ class _OptionItemWidgetState extends State<OptionItemWidget>
   Animation<double> opacityAnimation;
   Animation opacityCheckAnimation;
 
+  CartController _controller = CartController();
   @override
   void initState() {
     super.initState();
+
     animationController =
         AnimationController(duration: Duration(milliseconds: 350), vsync: this);
     CurvedAnimation curve =
@@ -69,6 +74,8 @@ class _OptionItemWidgetState extends State<OptionItemWidget>
           animationController.reverse();
         } else {
           animationController.forward();
+          //this block will give u the status of ontap
+          //we need to pass value form this to CartController somehow to tell that this is tapped
         }
         widget.option.checked = !widget.option.checked;
         widget.onChanged();

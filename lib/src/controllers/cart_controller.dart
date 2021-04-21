@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:markets/src/elements/OptionItemWidget.dart';
+import 'package:markets/src/global.dart';
+import 'package:markets/src/repository/product_repository.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../generated/l10n.dart';
@@ -97,7 +100,10 @@ class CartController extends ControllerMVC {
         cartPrice += element.price;
       });
       cartPrice *= cart.quantity;
+      //end objective is to access this method. to have a if condition that will check that OptionItemWidget is tapped or not
+      // if its tapper then we will pass the below code
       subTotal += cartPrice - cart.product.price;
+      // its if condition doesnt match then we will pass   {subTotal += cartPrice;}
     });
     if (Helper.canDelivery(carts[0].product.market, carts: carts)) {
       deliveryFee = carts[0].product.market.deliveryFee;
