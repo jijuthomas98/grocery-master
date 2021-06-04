@@ -4,7 +4,7 @@ import '../models/product.dart';
 class ProductOrder {
   String id;
   double price;
-  double quantity;
+  double quantity ;
   List<Option> options;
   Product product;
   DateTime dateTime;

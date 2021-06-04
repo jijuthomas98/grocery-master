@@ -92,17 +92,22 @@ class CartController extends ControllerMVC {
   }
 
   void calculateSubtotal() async {
-    double cartPrice = 0;
-    subTotal = 0;
+    double cartPrice ;
+    subTotal = 0 ;
+    double quantityInCart = 1.0 ;
     carts.forEach((cart) {
-      cartPrice = cart.product.price;
+      quantityInCart = cart.quantity ;
+      cartPrice = cart.product.price ;
       cart.options.forEach((element) {
         cartPrice += element.price;
+
       });
-      cartPrice *= cart.quantity;
+      cartPrice *= quantityInCart;
+
       //end objective is to access this method. to have a if condition that will check that OptionItemWidget is tapped or not
-      // if its tapper then we will pass the below code
-      subTotal += cartPrice - cart.product.price;
+      // if its tapped then we will pass the below code
+      subTotal += cartPrice ;  //- cart.product.price
+      print('${quantityInCart} is this , total is ${subTotal}');
       // its if condition doesnt match then we will pass   {subTotal += cartPrice;}
     });
     if (Helper.canDelivery(carts[0].product.market, carts: carts)) {
@@ -111,7 +116,9 @@ class CartController extends ControllerMVC {
     taxAmount =
         (subTotal + deliveryFee) * carts[0].product.market.defaultTax / 100;
     total = subTotal + taxAmount + deliveryFee;
-    setState(() {});
+    setState(() {
+      subTotal ;
+    });
   }
 
   void doApplyCoupon(String code, {String message}) async {

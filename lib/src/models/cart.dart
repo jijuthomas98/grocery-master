@@ -5,7 +5,7 @@ import '../models/product.dart';
 class Cart {
   String id;
   Product product;
-  double quantity;
+  double quantity = 1;
   List<Option> options;
   String userId;
 
@@ -14,7 +14,7 @@ class Cart {
   Cart.fromJSON(Map<String, dynamic> jsonMap) {
     try {
       id = jsonMap['id'].toString();
-      quantity = jsonMap['quantity'] != null ? jsonMap['quantity'].toDouble() : 0.0;
+      quantity = jsonMap['quantity'] != null ? jsonMap['quantity'].toDouble() : 1.0;
       product = jsonMap['product'] != null ? Product.fromJSON(jsonMap['product']) : Product.fromJSON({});
       options = jsonMap['options'] != null ? List.from(jsonMap['options']).map((element) => Option.fromJSON(element)).toList() : [];
     } catch (e) {
