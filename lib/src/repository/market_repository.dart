@@ -47,7 +47,7 @@ Future<Stream<Market>> getPopularMarkets(Address myLocation) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   Filter filter = Filter.fromJSON(json.decode(prefs.getString('filter') ?? '{}'));
 
-  _queryParams['limit'] = '6';
+  _queryParams['limit'] = '1';
   _queryParams['popular'] = 'all';
   if (!myLocation.isUnknown()) {
     _queryParams['myLon'] = myLocation.longitude.toString();

@@ -178,11 +178,12 @@ class Helper {
   }
 
   static double getTotalOrderPrice(ProductOrder productOrder) {
+    print('${productOrder.quantity} this is somewhere!');
     double total = productOrder.price;
     productOrder.options.forEach((option) {
       total += option.price != null ? option.price : 0;
     });
-    total *= productOrder.quantity;
+    total *= productOrder.quantity ;
     return total;
   }
 
