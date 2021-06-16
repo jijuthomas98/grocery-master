@@ -92,23 +92,26 @@ class CartController extends ControllerMVC {
   }
 
   void calculateSubtotal() async {
+    bool bundleFlag ;
+    double finalBoundleProductPrice ;
     double cartPrice ;
     subTotal = 0 ;
     double quantityInCart = 1.0 ;
     carts.forEach((cart) {
       quantityInCart = cart.quantity ;
-      cartPrice = cart.product.price ;
+      cartPrice = cart.product.price;
       cart.options.forEach((element) {
         cartPrice += element.price;
-
+        print('${element.id} , ${element.name} , ${element.price}');
       });
       cartPrice *= quantityInCart;
 
       //end objective is to access this method. to have a if condition that will check that OptionItemWidget is tapped or not
       // if its tapped then we will pass the below code
-      subTotal += cartPrice ;  //- cart.product.price
+      subTotal += cartPrice  ; //- cart.product.price ;
       print('${quantityInCart} is this , total is ${subTotal}');
       // its if condition doesnt match then we will pass   {subTotal += cartPrice;}
+
     });
     if (Helper.canDelivery(carts[0].product.market, carts: carts)) {
       deliveryFee = carts[0].product.market.deliveryFee;
